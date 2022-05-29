@@ -1,5 +1,5 @@
 /* Basic Style */
-body {
+.page {
   background-color: #f8f8f8;
   color: #333;
   font-family: Lato, sans-serif;
@@ -12,7 +12,7 @@ body {
   text-align: right;
 }
 
-.header img {
+.header__img {
   width: 100%;
 }
 
@@ -45,22 +45,26 @@ body {
   display: flex;
 }
 
-ul {
+.incomplete-tasks-block__list,
+.completed-tasks-block__list {
   margin: 0;
   padding: 0px;
 }
 
-li,
-h3 {
+.incomplete-tasks__item,
+.completed-tasks__item,
+.new-task-block__title,
+.incomplete-tasks-block__title,
+.completed-tasks-block__title {
   list-style: none;
 }
 
-input,
-button{
+.task-input,
+.btn {
   outline: none;
 }
 
-button {
+.btn {
   background: none;
   border: 0px;
   color: #888;
@@ -70,12 +74,14 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.btn:hover {
   color: #3a3a3a;
 }
 
 /* Heading */
-h3 {
+.new-task-block__title,
+.incomplete-tasks-block__title,
+.completed-tasks-block__title {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -85,7 +91,9 @@ h3 {
   text-transform: uppercase;
 }
 
-input[type="text"] {
+.new-task__input,
+.incomplete-tasks__input,
+.completed-tasks__input {
   margin: 0;
   font-size: 18px;
   line-height: 18px;
@@ -98,7 +106,9 @@ input[type="text"] {
   color: #888;
 }
 
-input[type="text"]:focus {
+.new-task__input:focus,
+.incomplete-tasks__input:focus,
+.completed-tasks__input:focus {
   color: #333;
 }
 
@@ -107,12 +117,13 @@ input[type="text"]:focus {
   margin-top: 20px;
 }
 
-input#new-task {
+.new-task__input {
   width: 318px;
 }
 
 /* Task list */
-li {
+.incomplete-tasks__item,
+.completed-tasks__item {
   overflow: hidden;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -121,51 +132,51 @@ li {
   align-items: center;
 }
 
-li > * {
-  vertical-align: middle;
-}
-
-li > input[type="checkbox"] {
+.incomplete-tasks__checkbox,
+.completed-tasks__checknox {
   margin: 0 10px;
 }
 
-li > label {
+.incomplete-tasks__label,
+.completed-tasks__label {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
   width: 226px;
 }
 
-li > input[type="text"] {
+.incomplete-tasks__input,
+.completed-tasks__input {
   width: 226px;
 }
 
-.btn_delete img {
+.btn__img {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
 
-.btn_delete img:hover {
+.btn__img:hover {
   transform: rotateZ(0);
 }
 
 /* Completed */
-ul#completed-tasks label {
+.completed-tasks__label {
   text-decoration: line-through;
   color: #888;
 }
 
 /* Edit Task */
-ul li input[type=text] {
+.incomplete-tasks__input,
+.completed-tasks__input {
   display: none;
 }
 
-ul li.incomplete-tasks__item_edit-mode input[type=text] {
+.incomplete-tasks__item_edit-mode .incomplete-tasks__input{
   display: inline-block;
   width: 224px;
 }
 
-ul li.incomplete-tasks__item_edit-mode label {
+.incomplete-tasks__item_edit-mode .incomplete-tasks__label {
   display: none;
 }
