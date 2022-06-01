@@ -172,11 +172,13 @@
   display: none;
 }
 
-.incomplete-tasks__item_edit-mode .incomplete-tasks__input{
+.task_edit-mode .incomplete-tasks__input,
+.task_edit-mode .completed-tasks__input {
   display: inline-block;
   width: 224px;
 }
 
-.incomplete-tasks__item_edit-mode .incomplete-tasks__label {
+.task_edit-mode .completed-tasks__label,
+.task_edit-mode .incomplete-tasks__label {
   display: none;
 }

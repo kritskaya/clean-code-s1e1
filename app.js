@@ -88,7 +88,8 @@ var editTask=function(){
   var editInput=listItem.querySelector('input[type=text]');
   var label=listItem.querySelector("label");
   var editBtn = listItem.querySelector(".btn_edit");
-  var containsClass = listItem.classList.contains("incomplete-tasks__item_edit-mode");
+  //var containsClass = listItem.classList.contains("incomplete-tasks__item_edit-mode");
+  var containsClass = listItem.classList.contains("task_edit-mode");
   //If class of the parent is .editmode
   if(containsClass){
 
@@ -102,7 +103,8 @@ var editTask=function(){
   }
 
   //toggle .editmode on the parent.
-  listItem.classList.toggle("incomplete-tasks__item_edit-mode");
+  //listItem.classList.toggle("incomplete-tasks__item_edit-mode");
+  listItem.classList.toggle("task_edit-mode");
 };
 
 
@@ -124,6 +126,20 @@ var taskCompleted=function(){
 
   //Append the task list item to the #completed-tasks
   var listItem=this.parentNode;
+
+  listItem.className = 'completed-tasks__item';
+  var chkbox = listItem.querySelector('input[type=checkbox]');
+  chkbox.className = 'completed-tasks__checknox task-checkbox';
+  var label = listItem.querySelector('label');
+  label.className = 'completed-tasks__label task-label';
+  var input = listItem.querySelector('input[type=text]');
+  input.className = 'completed-tasks__input task-input';
+  var btnEdit = listItem.querySelector('.btn_edit');
+  btnEdit.className = 'completed-tasks__btn btn btn_edit';
+  btnEdit.innerText = "Edit";
+  var btnDel = listItem.querySelector('.btn_delete');
+  btnDel.className = 'completed-tasks__btn btn btn_delete';
+
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 
@@ -136,6 +152,21 @@ var taskIncomplete=function(){
   //When the checkbox is unchecked
   //Append the task list item to the #incompleteTasks.
   var listItem=this.parentNode;
+
+  listItem.className = 'incomplete-tasks__item';
+  var chkbox = listItem.querySelector('input[type=checkbox]');
+  chkbox.className = 'incomplete-tasks__checkbox task-checkbox';
+  chkbox.removeAttribute('checked');
+  var label = listItem.querySelector('label');
+  label.className = 'incomplete-tasks__label task-label';
+  var input = listItem.querySelector('input[type=text]');
+  input.className = 'incomplete-tasks__input task-input';
+  var btnEdit = listItem.querySelector('.btn_edit');
+  btnEdit.className = 'incomplete-tasks__btn btn btn_edit';
+  btnEdit.innerText = "Edit";
+  var btnDel = listItem.querySelector('.btn_delete');
+  btnDel.className = 'incomplete-tasks__btn btn btn_delete';
+
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem,taskCompleted);
 }
